@@ -1,0 +1,234 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parisienne&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+html {
+    background-image: url("Images/FrenchRev.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-color: black;
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+    background-attachment: fixed;
+    animation: fadeInto 3s;
+
+}
+
+.titleScreen {
+    position: relative;
+    top: 50px;
+    text-align: center;
+    display: grid;
+    /*grid-template-columns: 600px;*/
+    align-items: center; /* centers items vertically */
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr;
+    
+    justify-content: center; /* centers items horizontally */
+}
+.fadeIn {
+    animation: fadeInto 3s;
+}
+
+
+p {
+    font-size: 50px;
+}
+
+@keyframes fadeInto {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.startbutton {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255, 0);
+    
+    font-family: "Lugrasimo", cursive;
+    animation: fadeIn 3s;
+    height: 80px;
+    width: 400px;
+    position: relative;
+    
+
+}
+
+.startbutton:hover {background-color: #988558}
+
+.startbutton:active {
+  background-color: #988558;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.creditsbutton {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255, 0);
+    color: #880808;
+    font-family: "Lugrasimo", cursive;
+    
+    height: 80px;
+    width: 400px;
+    
+    position: relative;
+    
+
+}
+
+.creditsbutton:hover {background-color: #988558}
+
+.creditsbutton:active {
+  background-color: #988558;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+.continuebutton {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255, 0);
+    color: #880808;
+    font-family: "Lugrasimo", cursive;
+   
+    height: 80px;
+    width: 400px;
+    
+    position: relative;
+    
+
+}
+
+.gameDiv {
+    color: #ffffff;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    position: relative;
+    align-items: center;
+}
+
+input {
+    background-image: url("Images/EventBack.jpg");
+}
+
+.dateDiv {
+    text-align: center;
+    font-size: 60px;
+    position: relative;
+    
+}
+
+.foodDiv {
+    
+    position: relative;
+    grid-area: "b";
+}
+
+
+.jewDiv {
+    position: relative;
+    grid-area: "c";
+}
+
+.activDiv {
+    position: relative;
+    grid-area: "d";
+}
+
+.statDiv {
+    position: relative;
+    grid-area: "e";
+}
+
+button {
+    font-size: 50px;
+    border: none;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255, 0);
+    color: #880808;
+    font-family: "Lugrasimo", cursive;
+   
+    height: 80px;
+    width: 400px;
+    position: relative;
+    animation: fadeInto 3s;
+    align-self: center;
+    justify-self: center;
+    
+}
+
+button:hover {
+    background-color: #988558
+}
+
+button:active {
+  background-color: #988558;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.continuebutton:hover {background-color: #988558}
+
+.continuebutton:active {
+ 
+  background-color: #988558;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.newgamebutton {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255, 0);
+    color: #880808;
+    font-family: "Lugrasimo", cursive;
+    
+    height: 80px;
+    width: 400px;
+    position: relative;
+
+    
+
+}
+
+
+
+
+
+
+.newgamebutton:hover {background-color: #988558}
+
+.newgamebutton:active {
+  background-color: #988558;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.alertdiv {
+    width: 600px;
+    height: 800px;
+    border: 0.5px black solid;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    background-image: url("Images/EventBack.jpg");
+    background-size: cover;
+    padding: 2em;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%);
+}
+
+
