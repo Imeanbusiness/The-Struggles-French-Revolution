@@ -57,6 +57,8 @@ function continueStart() {
         safety =  Number(localload("safety" ))
         eventHap =  Number(localload("eventHap"))
         dif = Number(localload("dif"))
+        difficutyNeg = Number(localload("difficultyNeg", difficutyNeg))
+        difficutyNeg = Number(localload("difficultyMax", difficutyMax))
         console.log("continued")
         if (year >= 1789) {
             introFade = setInterval(FadeIn, 10);
@@ -65,7 +67,7 @@ function continueStart() {
             function FadeIn() {
                 
                 if (opac <= 0) {
-                    documentHTML.style.backgroundImage = "url(\"Images/poverty.jpg\")"
+                    documentHTML.style.backgroundImage = "url(\"Images/Home.jpg\")"
                     clearInterval(introFade);
                     console.log("stopped")
                     faded = true
@@ -3006,10 +3008,6 @@ function updateStats() {
         gameDiv.appendChild(shop3Div);
 
 
-        shop3Text = document.createElement("h3")
-        shop3Text.setAttribute("id", "shop3Text")
-        shop3Div.appendChild(shop3Text);
-        document.getElementById("shop3Text").innerHTML = "Shop:"
 
         shop3Text2 = document.createElement("h4")
         shop3Text2.setAttribute("id", "shop3Text2")
@@ -3030,10 +3028,7 @@ function updateStats() {
             shop3Div.setAttribute("id", "shop3Div");
             gameDiv.appendChild(shop3Div);
 
-            shop3Text = document.createElement("h3")
-            shop3Text.setAttribute("id", "shop3Text")
-            shop3Div.appendChild(shop3Text);
-            document.getElementById("shop3Text").innerHTML = "shop3"
+
 
             shop3Text2 = document.createElement("h4")
             shop3Text2.setAttribute("id", "shop3Text2")
@@ -3171,6 +3166,8 @@ function NextTurn() {
     localsave("safety", safety);
     localsave("eventHap", eventHap);
     localsave("dif",dif)
+    localsave("difficultyNeg", difficutyNeg)
+    localsave("difficultyMax", difficutyMax)
     ActualGame2();
 }
 

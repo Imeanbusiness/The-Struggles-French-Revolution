@@ -12,6 +12,7 @@ html {
     font-size: larger;
     background-attachment: fixed;
     animation: fadeInto 3s;
+    text-shadow: #A70 1px 0 10px;
 
 }
 
@@ -103,6 +104,19 @@ p {
 
 }
 
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px
+}
+::-webkit-scrollbar-track {
+    background: transparent
+}
+
+::-webkit-scrollbar-thumb {
+    background: #880808;
+}
+
 .gameDiv {
     color: #ffffff;
     display: grid;
@@ -163,6 +177,8 @@ button {
     animation: fadeInto 3s;
     align-self: center;
     justify-self: center;
+    text-shadow: #FC0 1px 0 10px;
+
     
 }
 
