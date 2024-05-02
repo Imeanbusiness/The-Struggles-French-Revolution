@@ -57,8 +57,8 @@ function continueStart() {
         safety =  Number(localload("safety" ))
         eventHap =  Number(localload("eventHap"))
         dif = Number(localload("dif"))
-        difficutyNeg = Number(localload("difficultyNeg", difficutyNeg))
-        difficutyNeg = Number(localload("difficultyMax", difficutyMax))
+        difficutyNeg = Number(localload("difficultyNeg"))
+        difficultyMax = Number(localload("difficultyMax"))
         console.log("continued")
         if (year >= 1789) {
             introFade = setInterval(FadeIn, 10);
@@ -3167,7 +3167,7 @@ function NextTurn() {
     localsave("eventHap", eventHap);
     localsave("dif",dif)
     localsave("difficultyNeg", difficutyNeg)
-    localsave("difficultyMax", difficutyMax)
+    localsave("difficultyMax", difficultyMax)
     ActualGame2();
 }
 
