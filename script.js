@@ -45,7 +45,7 @@ function continueStart() {
     try {
         
         money = Number(localload("money"))
-        month =  Number(localload("month"))
+        month = localload("month")
         income =  Number(localload("income"))
         bread =  Number(localload("bread"))
         jewel =  Number(localload("jewel"))
