@@ -982,13 +982,13 @@ function ActualGame2() {
         return;
     } else {
 
-        eventNom = Randint(11);
+        eventNom = Randint(14);
        
-        EventList = ["You got robbed! Your money was halved.", "Assulted! Your safety was halved. You have a bigger target on your back.", "Disease inflicted! Your health was halved. Be careful out there.", "A man on the street looks weak and frail. Rob him?", "A knock on the door. It is a merchantman. He offers a pearl, which will give 10 happiness for only 20 sous! Purchase it?","You are offered a gun for free. It will increase safety by 10. Take it or no?", "You stole some bread from the store and got away! Your health increased by 15!","You managed to earn some extra money. You got 100 sous!","You made a new friend! You gained 10 happiness!", "Price spike! Bread price was doubled!", "Price Spike! Jewel price was doubled!", "Heavy taxes! Income was halved!"]
+        EventList = ["You got robbed! Your money was halved.", "Assulted! Your safety was halved. You have a bigger target on your back.", "Disease inflicted! Your health was halved. Be careful out there.", "A man on the street looks weak and frail. Rob him?", "A knock on the door. It is a merchantman. He offers a pearl, which will give 10 happiness for only 20 sous! Purchase it?","You are offered a gun for free. It will increase safety by 10. Take it or no?", "You stole some bread from the store and got away! Your health increased by 15!","You managed to earn some extra money. You got 100 sous!","You made a new friend! You gained 10 happiness!", "Price spike! Bread price was doubled!", "Price Spike! Jewel price was doubled!", "Heavy taxes! Income was halved!","Price drop! Bread price dropped by 25%!", 'Price drop! Bread price dropped by 25%!', "Big raise! Income was increased by 50%!"]
         badEvents = [0,1,2]
         curiEvents = [3,4,5]
         goodEvents = [6,7,8]
-        moneyEvents = [9,10,11]
+        moneyEvents = [9,10,11, 12, 13, 14]
         function eventHappen() {
             alertDiv = document.createElement("div")
             alertDiv.setAttribute("class", "alertdiv" )
@@ -1078,7 +1078,20 @@ function ActualGame2() {
                     if (income <= 75) {
                         income += 25
                     }
-                }
+                } else if (eventNom == 12) {
+                    bread = bread*0.75
+                    if (bread <= 5) {
+                        bread++
+                    }
+                } else if (eventNom == 13) {
+                    jewel = jewel*0.75
+                    if (jewel <= 7) {
+                        jewel++
+                    }
+                }  else if (eventNom == 14) {
+                    income = income * 1.5
+                } 
+    
                 back.setAttribute("id", "yes");
                 back.setAttribute("onclick", "cutscene()");
                 node = document.createTextNode("Understood!");
