@@ -99,6 +99,82 @@ function continueStart() {
     
 }
 
+
+function cutChoose() {
+    n = document.getElementById("scholar")
+    ba = document.getElementById("noble")
+    credits = document.getElementById("business")
+
+    help = document.getElementById("help")
+
+
+    hard = document.getElementById("hard")
+    diffText = document.getElementById("diffText")
+    back = document.getElementById("back")
+
+
+    n.remove()
+    ba.remove()
+    diffText.remove()
+    credits.remove()
+    help.remove()
+    hard.remove()
+    back.remove()
+
+
+
+
+
+    hah = document.createElement("h2")
+    hah.setAttribute("id", "funnyText")
+    titleScreen.appendChild(hah);
+    document.getElementById("funnyText").innerHTML = "Watch opening cutscene?"
+
+
+
+    n = document.createElement('button');
+    n.className = "fadeIn continuebutton"
+    
+    n.setAttribute("id", "yes");
+    n.setAttribute("onclick", "cutYes()");
+    node = document.createTextNode("Yes");
+    n.appendChild(node);
+
+    ba = document.createElement('button');
+    ba.className = "fadeIn"
+    
+    ba.setAttribute("id", "no");
+    ba.setAttribute("onclick", "cutNo()");
+    node = document.createTextNode("No");
+    ba.appendChild(node);
+
+
+    
+    
+
+
+
+    
+
+
+
+
+
+    titleScreen.appendChild(n);
+    titleScreen.appendChild(ba);
+
+}
+
+
+function cutYes() {
+    Game()
+}
+
+function cutNo() {
+    ActualGame()
+}
+
+
 function EnterGame() {
     running = false;
     mainmenu.currentTime = 0;
@@ -180,9 +256,14 @@ function EnterGame() {
 }
 
 
+var device = "null"
 
+const ua = navigator.userAgent
 
+//actualgame
 function start() {
+
+    
     n = document.getElementById("continue")
     ba = document.getElementById("start")
     credits = document.getElementById("credits")
@@ -190,11 +271,41 @@ function start() {
     n.remove()
     ba.remove()
     credits.remove()
+
+    diffText = document.createElement("h3")
+    diffText.setAttribute("id", "diffText")
+    diffText.setAttribute("class", "diffText")
+    titleScreen.appendChild(diffText)
+    document.getElementById("diffText").innerHTML = "What difficulty will you choose?"
+    diffText = document.getElementById("diffText");
+    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+        device = "phone"
+    } else if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+        device = "tablet"
+    } else {
+        device = "dektop"
+    }
+    if (device == "phone") {
+        diffText.remove()
+    }
+    
+    var w = window.innerWidth;
+    
+    
+    if (w<=700) {
+        diffText.remove()
+    }
+
+
+
+
     n = document.createElement('button');
     n.className = "fadeIn continuebutton"
     
     n.setAttribute("id", "scholar");
     n.setAttribute("onclick", "scholar()");
+    n.setAttribute("onmouseover","scholarHover()")
+    n.setAttribute("onmouseout","resetDifText()")
     node = document.createTextNode("Scholar mode");
     n.appendChild(node);
 
@@ -203,6 +314,8 @@ function start() {
     
     ba.setAttribute("id", "noble");
     ba.setAttribute("onclick", "noble()");
+    ba.setAttribute("onmouseover","nobleHover()")
+    ba.setAttribute("onmouseout","resetDifText()")
     node = document.createTextNode("Noble mode");
     ba.appendChild(node);
 
@@ -211,6 +324,8 @@ function start() {
     
     creditss.setAttribute("id", "business");
     creditss.setAttribute("onclick", "business()");
+    creditss.setAttribute("onmouseover","bgsHover()")
+    creditss.setAttribute("onmouseout","resetDifText()")
     node = document.createTextNode("BGS mode");
     creditss.appendChild(node);
 
@@ -220,6 +335,8 @@ function start() {
 
     hard.setAttribute("id", "hard");
     hard.setAttribute("onclick", "peasant()");
+    hard.setAttribute("onmouseover","peasantHover()")
+    hard.setAttribute("onmouseout","resetDifText()")
     node = document.createTextNode("Peasant Mode");
     hard.appendChild(node);
 
@@ -257,6 +374,45 @@ function start() {
 }
 
 
+
+function resetDifText() {
+    document.getElementById("diffText").innerHTML = "What difficulty will you choose?"
+}
+
+
+
+function scholarHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "For those who are learning! All canon events are fixed and you cannot die. Your stat loss is 5 and there is no death threshold. Your income starts at 250."
+    } catch {
+
+    }
+}
+
+function nobleHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "For those who just want to test the game! Perfect for beginners! Your stat loss is 3 and there is no death threshold. Your income starts at 300."
+    } catch {
+
+    }
+}
+
+function bgsHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "For those who want to experience the normal game! Your stat loss is 5 and the death threshold is 10. Your income starts at 250."
+    } catch {
+
+    }
+}
+
+function peasantHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "For those who want a huge challenge! Perfect for experienced players! Your stat loss is 7 and the death threshold is 25. Your income starts at 200."
+    } catch {
+
+    }
+}
+
 //credits
 function scholar() {
     if (running == false) {
@@ -265,7 +421,7 @@ function scholar() {
         difficultyMax = 0
         income = 250
         dif = 0
-        Game();
+        cutChoose();
         
     }
 }
@@ -278,7 +434,7 @@ function noble() {
         difficultyMax = 0
         income = 300
         dif = 1
-        Game();
+        cutChoose();
         
     }
 }
@@ -291,7 +447,7 @@ function business() {
         difficultyMax = 10
         income = 250
         dif = 2
-        Game();
+        cutChoose();
         
     }
 }
@@ -303,12 +459,42 @@ function peasant() {
         difficultyMax = 25
         income = 200
         dif = 3
-        Game();
+        cutChoose();
         
     }
 }
 
 function ActualGame() {
+
+    introFade = setInterval(FadeIn, 10);
+    opac = 1
+    faded = false;
+    function FadeIn() {
+        
+        if (opac <= 0) {
+            documentHTML.style.backgroundImage = "url(\"Images/Home.jpg\")"
+            clearInterval(introFade);
+            console.log("stopped")
+            faded = true
+            titleScreen = document.getElementById("titleScreen");
+    
+            titleScreen.remove();
+            
+
+        } else {
+            opac-=0.0033; 
+            documentHTML.style.opacity = opac; 
+            console.log("working")
+        }
+    }
+    
+    mainmenu.pause();
+    introtheme.currentTime  = 0;
+    introtheme.play();
+    introtheme.loop="true";
+
+
+
     happiness = 75;
     health = 75;
     safety = 75;
@@ -320,27 +506,50 @@ function ActualGame() {
     money = income;
     month = "January";
     trueMonth = 0
-    introTextDiv = document.getElementById("introDiv");
 
-    introTextDiv.remove();
+    introFadeIn = setInterval(FadingIn, 10);
+    valueFade = false
+    function FadingIn() {
+        
 
-    alertDiv = document.createElement("div")
-    alertDiv.setAttribute("class", "alertdiv" )
-    alertDiv.setAttribute("id", "alertdiv")
-    node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.")
+        if (opac >= 1) {
+            alertDiv = document.createElement("div")
+            alertDiv.setAttribute("class", "alertdiv" )
+            alertDiv.setAttribute("id", "alertdiv")
+            node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.")
 
-    alertDiv.appendChild(node);
-    document.body.style.textAlign = "center";
-    body.append(alertDiv)
-    back = document.createElement('button');
+            alertDiv.appendChild(node);
+            document.body.style.textAlign = "center";
+            body.append(alertDiv)
+            back = document.createElement('button');
+            
+            
+            back.setAttribute("id", "yes");
+            back.setAttribute("onclick", "ActualGame2()");
+            node = document.createTextNode("Understood!");
+            back.appendChild(node);
+            alertDiv = document.getElementById("alertdiv")
+            alertDiv.appendChild(back);
+            clearInterval(introFadeIn);
+            console.log("stopped")
+            
+        } else if (faded == true) {
+            opac+=0.0033;
+            documentHTML.style.opacity = opac; 
+            console.log("working")
+            
+        }
+    }
+    try {
+        introTextDiv = document.getElementById("introDiv");
     
+        introTextDiv.remove();
+
+    } catch {
+
+    }
+
     
-    back.setAttribute("id", "yes");
-    back.setAttribute("onclick", "ActualGame2()");
-    node = document.createTextNode("Understood!");
-    back.appendChild(node);
-    alertDiv = document.getElementById("alertdiv")
-    alertDiv.appendChild(back);
 
 
 
@@ -3187,7 +3396,7 @@ function NextTurn() {
 
 
 
-
+//actualGame
 
 function Game() {
     

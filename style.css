@@ -248,3 +248,11 @@ button:active {
 }
 
 
+.diffText {
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    width:  250px;
+    margin: 2.5em;
+
+}
