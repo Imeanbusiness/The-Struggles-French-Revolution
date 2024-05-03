@@ -4,6 +4,7 @@ var sadtheme = new Audio("Assets/SadEvent.mp3")
 var happytheme = new Audio("Assets/HappyEvent.mp3")
 var curioustheme = new Audio("Assets/CuriousEvent.mp3")
 var newdaytheme = new Audio("Assets/NewDayTheme.mp3")
+var moneychange = new Audio("Assets/MoneyChange.mp3")
 const documentHTML = document.documentElement;
 const body = document.body;
 running = false
@@ -164,7 +165,7 @@ function cutChoose() {
     titleScreen.appendChild(ba);
 
 }
-
+//creddits
 
 function cutYes() {
     Game()
@@ -948,7 +949,7 @@ function no() {
 
 
 function Creddits() {
-    alert("Made by Dominic Koh.\nMusic from super metroid\nImages from google\nCurrent Version: beta v1")
+    alert("Made by Dominic Koh.\nMusic from Super Metroid\nImages from Google\nCurrent Version: Beta v1.0.4\nThanks for playing!")
 }
 
 
@@ -981,12 +982,13 @@ function ActualGame2() {
         return;
     } else {
 
-        eventNom = Randint(8);
+        eventNom = Randint(11);
        
-        EventList = ["You got robbed! Your money was halved.", "Assulted! Your safety was halved. You have a bigger target on your back.", "Disease inflicted! Your health was halved. Be careful out there.", "A man on the street looks weak and frail. Rob him?", "A knock on the door. It is a merchantman. He offers a pearl, which will give 10 happiness for only 20 sous! Purchase it?","You are offered a gun for free. It will increase safety by 10. Take it or no?", "You stole some bread from the store and got away! Your health increased by 15!","You managed to earn some extra money. You got 100 sous!","You made a new friend! You gained 10 happiness!"]
+        EventList = ["You got robbed! Your money was halved.", "Assulted! Your safety was halved. You have a bigger target on your back.", "Disease inflicted! Your health was halved. Be careful out there.", "A man on the street looks weak and frail. Rob him?", "A knock on the door. It is a merchantman. He offers a pearl, which will give 10 happiness for only 20 sous! Purchase it?","You are offered a gun for free. It will increase safety by 10. Take it or no?", "You stole some bread from the store and got away! Your health increased by 15!","You managed to earn some extra money. You got 100 sous!","You made a new friend! You gained 10 happiness!", "Price spike! Bread price was doubled!", "Price Spike! Jewel price was doubled!", "Heavy taxes! Income was halved!"]
         badEvents = [0,1,2]
         curiEvents = [3,4,5]
         goodEvents = [6,7,8]
+        moneyEvents = [9,10,11]
         function eventHappen() {
             alertDiv = document.createElement("div")
             alertDiv.setAttribute("class", "alertdiv" )
@@ -1044,7 +1046,7 @@ function ActualGame2() {
     
     
     
-            } else {
+            } else if (goodEvents.includes(eventNom)) {
                 happytheme.currentTime = 0;
                 happytheme.play();
                 happytheme.loop="true";
@@ -1055,6 +1057,27 @@ function ActualGame2() {
                     money+=100
                 } else if (eventNom == 8) {
                     happiness+=10
+                }
+                back.setAttribute("id", "yes");
+                back.setAttribute("onclick", "cutscene()");
+                node = document.createTextNode("Understood!");
+                back.appendChild(node);
+                alertDiv = document.getElementById("alertdiv")
+                alertDiv.appendChild(back);
+            } else {
+                moneychange.currentTime = 0;
+                moneychange.play();
+                moneychange.loop="true";
+                if (eventNom == 9) {
+                    bread = bread*2
+    
+                } else if (eventNom == 10) {
+                    jewel = jewel*2
+                } else if (eventNom == 11) {
+                    income = income/2
+                    if (income <= 75) {
+                        income += 25
+                    }
                 }
                 back.setAttribute("id", "yes");
                 back.setAttribute("onclick", "cutscene()");
@@ -1117,6 +1140,12 @@ function cutscene() {
     }
     try {
         curioustheme.pause()
+    } catch {
+
+    }
+
+    try {
+        moneychange.pause()
     } catch {
 
     }
@@ -3391,6 +3420,16 @@ function NextTurn() {
     happiness-=difficutyNeg;
     money+=income
     safety+=10-difficutyNeg
+
+    if (bread <= 5) {
+        bread++
+    }
+    if (jewel <= 7) {
+        jewel++
+    }
+    if (income <= 75) {
+        income+=25
+    }
     localsave("money", money);
     localsave("month", month);
     localsave("income",income);
