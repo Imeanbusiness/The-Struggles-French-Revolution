@@ -38,7 +38,7 @@ function localload(saveID) {
 }
 
 
-
+coming = false
 
 
 function continueStart() {
@@ -176,6 +176,28 @@ function cutNo() {
 
 
 function EnterGame() {
+    if (coming) {
+        introFade3 = setInterval(FadeIn, 10);
+        opac = -0
+        faded = false;
+        function FadeIn() {
+            
+            if (opac >= 1) {
+                
+                clearInterval(introFade3);
+                console.log("stopped")
+                faded = true
+
+
+            } else {
+                opac+=0.0033; 
+                documentHTML.style.opacity = opac; 
+                console.log("working")
+            }
+        }        
+    }
+    coming = false
+           
     running = false;
     mainmenu.currentTime = 0;
 
@@ -1737,9 +1759,9 @@ function cutscene() {
                         clearInterval(introFade2);
                         console.log("stopped")
                         faded = true
-                        titleScreen = document.getElementById("titleScreen");
+                        CutsDiv = document.getElementById("CutDiv");
                 
-                        titleScreen.remove();
+                        CutsDiv.remove();
             
                     } else {
                         opac-=0.0033; 
@@ -1747,7 +1769,10 @@ function cutscene() {
                         console.log("working")
                     }
                 }
-                EnterGame()                    
+                 
+                coming = true
+
+                EnterGame()    
             }, 25000);
         } else {
             fell = true
@@ -2362,9 +2387,9 @@ function cutscene() {
                 if (faded == true && valueFade == false) {
                     valueFade = true
                     opac = 0
-                    yearstook = years-1789;
+                    yearstook = year-1789;
                     monthstook = trueMonth+yearstook*12;
-                    node = document.createTextNode(month+" "+year+": Alas, the end! The man behind the terror: you, are executed. That concludes the reign of terror and our end of the revolution. YOU WON! It ony took you "+monthstook+" to revolutionize France!");
+                    node = document.createTextNode(month+" "+year+": Alas, the end! The man behind the terror: you, are executed. That concludes the reign of terror and our end of the revolution. YOU WON! It only took you "+monthstook+" months to revolutionize France!");
                     introText.appendChild(node);
                     introTextDiv = document.getElementById("CutDiv");
                     introTextDiv.appendChild(introText);
@@ -2393,9 +2418,9 @@ function cutscene() {
                         clearInterval(introFade2);
                         console.log("stopped")
                         faded = true
-                        titleScreen = document.getElementById("titleScreen");
+                        CutsDiv = document.getElementById("CutDiv");
                 
-                        titleScreen.remove();
+                        CutsDiv.remove();
             
                     } else {
                         opac-=0.0033; 
@@ -2403,7 +2428,10 @@ function cutscene() {
                         console.log("working")
                     }
                 }
-                EnterGame()                    
+                 
+                coming = true
+
+                EnterGame()    
             }, 25000);
 
         } else {
@@ -3344,6 +3372,7 @@ function NextTurn() {
     inflation1 = inflation1/100;
     inflation2 = inflation2/100;
     inflation3 = inflation3/100;
+    console.log(inflationOp+"inflation Op, 0 = -")
     if (inflationOp==0) {
         income = Math.floor(income*(1-inflation1))
         bread = Math.floor(bread*(1-(inflation2/2)))
