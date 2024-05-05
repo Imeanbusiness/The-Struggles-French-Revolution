@@ -539,7 +539,7 @@ function ActualGame() {
             alertDiv = document.createElement("div")
             alertDiv.setAttribute("class", "alertdiv" )
             alertDiv.setAttribute("id", "alertdiv")
-            node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.")
+            node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. All bread gets consumed every month You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.The goal of the game is to collect popularity! Once you reach certain points, certain events will occur.")
 
             alertDiv.appendChild(node);
             document.body.style.textAlign = "center";
@@ -3378,7 +3378,7 @@ function NextTurn() {
     try {
         enforcement = document.getElementById("").value;
         if (popul < enforcement) {
-            alert("Error: You don't have enough population to enforce that!")
+            alert("Error: You don't have enough popularity to enforce that!")
             return;
         }
 
@@ -3386,6 +3386,12 @@ function NextTurn() {
     } catch {
         enforcement = 0;
     }
+    var textConf = "Are you sure you wish to proceed? Your bread total is "+(breadStock*bread)+" sous\nYour Jewelery total is "+jewelStock*jewel+" sous\nYour popularity will decrease by "+enforcement+"\nYou will be left with "+(money-(breadStock*bread)-(jewelStock*jewel))+" sous and "+(popul-enforcement)+" popularity."
+    if (!confirm(textConf)) {
+        return;
+    }
+
+
     dateHead = document.getElementById("dateHead");
     dateHead.remove()
     gameDiv = document.getElementById("gameDiv");
