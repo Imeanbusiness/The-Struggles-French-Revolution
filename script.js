@@ -40,7 +40,7 @@ function localload(saveID) {
 
 
 coming = false
-
+//reddit
 
 function continueStart() {
     try {
@@ -118,7 +118,7 @@ function cutChoose() {
     ba.remove()
     diffText.remove()
     credits.remove()
-    help.remove()
+
     hard.remove()
     back.remove()
 
@@ -176,8 +176,60 @@ function cutNo() {
 }
 
 
+
+confirmBox = true
+musicplay= true 
+fontchange = true
+
+
+function checkSettings() {
+    saved = localload("saved")
+    confirmBox = JSON.parse(localload("confirmBox"))
+    musicplay = JSON.parse(localload("musicplay"))
+    fontchange = JSON.parse(localload("fontchange"))
+    console.log("Hehe")
+    if (saved!="saved!") {
+        localsave("confirmBox", true)
+        localsave("musicplay", true)
+        localsave("fontchange", true)
+        localsave("saved", "saved!")
+        confirmBox = true
+        musicplay= true 
+        fontchange = true
+        console.log("Heh")
+    }
+    if (fontchange) {
+        documentHTML.style.fontFamily = "\"Lugrasimo\",cursive"
+    } else {
+        documentHTML.style.fontFamily = "sans-serif"
+    }
+    console.log(confirmBox, musicplay, fontchange)
+
+
+}
+
+
+
+
+function changeSound(x) {
+        mainmenu.volume = x
+        newdaytheme.volume = x
+        happytheme.volume = x
+        moneychange.volume = x
+        sadtheme.volume = x
+        curioustheme.volume = x
+        introtheme.volume = x
+}
+
 function EnterGame() {
+    checkSettings()
+    if (!musicplay) {
+        console.log(confirmBox, musicplay, fontchange)
+        changeSound(0)
+    }
+    console.log(confirmBox, musicplay, fontchange)
     if (coming) {
+
         introFade3 = setInterval(FadeIn, 10);
         opac = -0
         faded = false;
@@ -264,6 +316,12 @@ function EnterGame() {
     node = document.createTextNode("Help");
     help.appendChild(node);
 
+    Xoptions = document.createElement("button")
+    Xoptions.setAttribute("id", "options");
+    Xoptions.setAttribute("onclick", "options()");
+    node = document.createTextNode("Options");
+    Xoptions.appendChild(node);
+
 
 
 
@@ -271,13 +329,14 @@ function EnterGame() {
     titleScreen.appendChild(ba);
     titleScreen.appendChild(creditss);
     titleScreen.append(help)
-
+    titleScreen.append(Xoptions)
 
 
  
 
     
 }
+
 
 
 var device = "null"
@@ -287,11 +346,15 @@ const ua = navigator.userAgent
 //actualgame
 function start() {
 
-    
+    op = document.getElementById("options")
+    help = document.getElementById("help")
     n = document.getElementById("continue")
     ba = document.getElementById("start")
     credits = document.getElementById("credits")
 
+
+    op.remove()
+    help.remove()
     n.remove()
     ba.remove()
     credits.remove()
@@ -398,11 +461,215 @@ function start() {
 }
 
 
+function options() {
+    op = document.getElementById("options")
+    help = document.getElementById("help")
+    n = document.getElementById("continue")
+    ba = document.getElementById("start")
+    credits = document.getElementById("credits")
+
+
+    op.remove()
+    help.remove()
+    n.remove()
+    ba.remove()
+    credits.remove()
+
+    diffText = document.createElement("h3")
+    diffText.setAttribute("id", "diffText")
+    diffText.setAttribute("class", "diffText")
+    titleScreen.appendChild(diffText)
+    document.getElementById("diffText").innerHTML = "Option when hovered will appear here"
+    diffText = document.getElementById("diffText");
+    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+        device = "phone"
+    } else if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+        device = "tablet"
+    } else {
+        device = "dektop"
+    }
+    if (device == "phone") {
+        diffText.remove()
+    }
+    
+    var w = window.innerWidth;
+    
+    
+    if (w<=700) {
+        diffText.remove()
+    }
+
+
+
+
+    n = document.createElement('button');
+    n.className = "fadeIn continuebutton"
+    
+    n.setAttribute("id", "confirmBox");
+    n.setAttribute("onclick", "confirmtoggle()");
+    n.setAttribute("onmouseover","confirmboxHover()")
+    n.setAttribute("onmouseout","resetDifText2()")
+    if (confirmBox) {
+        node = document.createTextNode("Confirm: on");
+    } else {
+        node = document.createTextNode("Confirm: off");
+    }
+    
+    n.appendChild(node);
+
+    ba = document.createElement('button');
+    ba.className = "fadeIn newgamebutton"
+    
+    ba.setAttribute("id", "music");
+    ba.setAttribute("onclick", "musictoggle()");
+    ba.setAttribute("onmouseover","musicHover()")
+    ba.setAttribute("onmouseout","resetDifText2()")
+    if (musicplay) {
+        node = document.createTextNode("Music: on");
+    } else {
+        node = document.createTextNode("Music: off");
+    }
+    ba.appendChild(node);
+
+    creditss = document.createElement('button');
+    creditss.className = "fadeIn creditssbutton"
+    
+    creditss.setAttribute("id", "font");
+    creditss.setAttribute("onclick", "fonttoggle()");
+    creditss.setAttribute("onmouseover","fontHover()")
+    creditss.setAttribute("onmouseout","resetDifText2()")
+    if (fontchange) {
+        node = document.createTextNode("Font: on");
+    } else {
+        node = document.createTextNode("Font: off");
+    }
+    creditss.appendChild(node);
+
+
+
+    back = document.createElement('button');
+    
+    
+    back.setAttribute("id", "back");
+    back.setAttribute("onclick", "EnterGame()");
+    node = document.createTextNode("Back");
+    back.appendChild(node);
+
+    help = document.createElement('button');
+    
+    
+
+
+
+    
+
+
+
+
+
+    titleScreen.appendChild(n);
+    titleScreen.appendChild(ba);
+    titleScreen.appendChild(creditss);
+
+    titleScreen.appendChild(back);
+}
+
+
+
+
+function confirmtoggle() {
+    confirmBox = !confirmBox
+    localsave("confirmBox", confirmBox)
+    if (confirmBox) {
+        document.getElementById("confirmBox").innerHTML = "Confirm: on";
+    } else {
+        document.getElementById("confirmBox").innerHTML = "Confirm: off";
+    }
+
+}
+
+function musictoggle() {
+    musicplay = !musicplay 
+    if (musicplay) {
+        changeSound(1)
+    } else {
+        changeSound(0)
+    }
+    if (musicplay) {
+        document.getElementById("music").innerHTML = "Music: on";
+    } else {
+        document.getElementById("music").innerHTML = "Music: off";
+    }
+    localsave("musicplay", musicplay)
+}
+
+function fonttoggle() {
+    fontchange = !fontchange
+    if (fontchange) {
+        documentHTML.style.fontFamily = "\"Lugrasimo\",cursive"
+    } else {
+        documentHTML.style.fontFamily = "sans-serif"
+    }
+    if (fontchange) {
+        document.getElementById("font").innerHTML = "Font: on";
+    } else {
+        document.getElementById("font").innerHTML = "Font: off";
+    }
+    localsave("fontchange", fontchange)
+}
+
+
+function confirmboxHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "Toggle the confirmation box. The confirmation box appears before you end each turn to show you your monthly expenses."
+    } catch {
+
+    }
+}
+
+function musicHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "Toggle music. Note that turning it off turns ALL music off."
+    } catch {
+
+    }
+
+
+}
+
+function fontHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "Toggle custom font. Turning this off defaults to Sans-Serif. Buttons are not affected."
+    } catch {
+
+    }
+}
+
+function nobleHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "For those who just want to test the game! Perfect for beginners! Your stat loss is 3 and there is no death threshold. Your income starts at 300."
+    } catch {
+
+    }
+}
+
+function bgsHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "For those who want to experience the normal game! Your stat loss is 5 and the death threshold is 10. Your income starts at 250."
+    } catch {
+
+    }
+}
+
+
 
 function resetDifText() {
     document.getElementById("diffText").innerHTML = "What difficulty will you choose?"
 }
 
+function resetDifText2() {
+    document.getElementById("diffText").innerHTML = "Option when hovered will appear here"
+}
 
 
 function scholarHover() {
@@ -950,7 +1217,7 @@ function no() {
 
 
 function Creddits() {
-    alert("Made by Dominic Koh.\nMusic from Super Metroid\nImages from Google\nCurrent Version: Beta v1.0.4\nThanks for playing!")
+    alert("Made by Dominic Koh.\nMusic from Super Metroid\nImages from Google\nCurrent Version: Options v1.1.0\nThanks for playing!")
 }
 
 
@@ -3388,8 +3655,12 @@ function NextTurn() {
         enforcement = 0;
     }
     var textConf = "Are you sure you wish to proceed? Your bread total is "+(breadStock*bread)+" sous\nYour Jewelery total is "+jewelStock*jewel+" sous\nYour popularity will decrease by "+enforcement+"\nYou will be left with "+(money-(breadStock*bread)-(jewelStock*jewel))+" sous and "+(popul-enforcement)+" popularity."
-    if (!confirm(textConf)) {
-        return;
+    
+    if (confirmBox) {
+        if (!confirm(textConf)) {
+            return;
+        }
+        
     }
 
 

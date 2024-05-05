@@ -253,6 +253,7 @@ button:active {
     position: absolute;
     top: 50%;
     width:  250px;
+    color: white;
     margin: 2.5em;
 
 }
