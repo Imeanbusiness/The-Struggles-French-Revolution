@@ -110,13 +110,19 @@ function cutChoose() {
 
 
     hard = document.getElementById("hard")
-    diffText = document.getElementById("diffText")
+    try {
+        diffText = document.getElementById("diffText")
+    } catch {
+        
+    }
+    
     back = document.getElementById("back")
 
 
     n.remove()
     ba.remove()
-    diffText.remove()
+    try {diffText.remove()} catch {}
+    
     credits.remove()
 
     hard.remove()
