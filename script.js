@@ -203,6 +203,7 @@ function EnterGame() {
     mainmenu.currentTime = 0;
 
     mainmenu.play();
+    console.log("playing main menu")
     mainmenu.loop="true";
     element = document.getElementById("enter");
     try {
