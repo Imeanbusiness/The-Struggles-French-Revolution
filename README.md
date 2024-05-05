@@ -6,6 +6,11 @@ Thank you for choosing to play The Struggles: The French Revolution! This game c
 
 ## Getting the game
 
+### Info
+
+- Version: Options v1.1.1
+- Size: 27MB
+
 ### Contents
 
 - Images folder
