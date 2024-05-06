@@ -1355,12 +1355,12 @@ function ActualGame2() {
                 } else if (eventNom == 12) {
                     bread = bread*0.75
                     if (bread <= 5) {
-                        bread++
+                        bread+= 4
                     }
                 } else if (eventNom == 13) {
                     jewel = jewel*0.75
                     if (jewel <= 7) {
-                        jewel++
+                        jewel+= 6
                     }
                 }  else if (eventNom == 14) {
                     income = income * 1.5
@@ -3304,23 +3304,23 @@ function Riot() {
         if (chance == 0) {
             popul += 25
             happiness-=10
-            document.getElementById("journal").innerHTML = "You rioted and lost 10 happiness. You gained 100 popularity!";
+            document.getElementById("journal").innerHTML = "You rioted and lost 10 happiness. You gained 25 popularity!";
             updateStats()
         } else if (chance ==1) {
             popul += 25
             safety-=10
-            document.getElementById("journal").innerHTML = "You rioted and lost 10 safety. You gained 100 popularity!";
+            document.getElementById("journal").innerHTML = "You rioted and lost 10 safety. You gained 25 popularity!";
             updateStats()
         } else if (chance ==2) {
             popul += 25
             health-=10
-            document.getElementById("journal").innerHTML = "You rioted and lost 10 health. You gained 100 popularity!";
+            document.getElementById("journal").innerHTML = "You rioted and lost 10 health. You gained 25 popularity!";
        
             updateStats()
         } else if (chance == 3) {
             popul += 25
             money-=50
-            document.getElementById("journal").innerHTML = "You rioted and lost 50 sous. You gained 100 popularity!";
+            document.getElementById("journal").innerHTML = "You rioted and lost 50 sous. You gained 25 popularity!";
             updateStats()
         }
         
@@ -3719,10 +3719,10 @@ function NextTurn() {
     safety+=10-difficutyNeg
 
     if (bread <= 5) {
-        bread++
+        bread+= 4
     }
     if (jewel <= 7) {
-        jewel++
+        jewel+= 6
     }
     if (income <= 75) {
         income+=25
