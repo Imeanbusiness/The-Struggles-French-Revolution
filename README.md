@@ -8,7 +8,7 @@ Thank you for choosing to play The Struggles: The French Revolution! This game c
 
 ### Info
 
-- Version: Options v1.1.1
+- Version: Options v1.1.1 (fixed)
 - Size: 27MB
 
 ### Contents
@@ -21,7 +21,7 @@ Thank you for choosing to play The Struggles: The French Revolution! This game c
 
 ### Download to play offline
 
-1. The game can be downloaded [here](https://github.com/Imeanbusiness/The-Struggles-French-Revolution/archive/refs/tags/Options-V1-A.zip)
+1. The game can be downloaded [here](https://github.com/Imeanbusiness/The-Struggles-French-Revolution/archive/refs/tags/Options-V1-AB.zip)
 2. After download, make sure you extract all the files.
 3. Open only the "index.html" file
 
