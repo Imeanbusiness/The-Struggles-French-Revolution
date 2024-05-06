@@ -3650,10 +3650,15 @@ function NextTurn() {
 
 
     try {
-        enforcement = document.getElementById("").value;
-        if (popul < enforcement) {
-            alert("Error: You don't have enough popularity to enforce that!")
-            return;
+        if (popul > 1999) {
+            enforcement = document.getElementById("enfinput").value;
+            if (popul < enforcement ) {
+                alert("Error: You don't have enough popularity to enforce that!")
+                return;
+            }
+
+        } else {
+            enforcement = 0
         }
 
         
