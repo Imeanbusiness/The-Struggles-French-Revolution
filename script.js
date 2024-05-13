@@ -60,7 +60,14 @@ function continueStart() {
         dif = Number(localload("dif"))
         difficutyNeg = Number(localload("difficultyNeg"))
         difficultyMax = Number(localload("difficultyMax"))
+        eventNom = Number(localload("eventNom"))
         console.log("continued")
+        if (eventNom >= 0 && eventNom <= 14) {
+            
+        } else {
+            eventNom = Randint(14);
+        }
+
         if (year >= 1789) {
             introFade = setInterval(FadeIn, 10);
             opac = 1
@@ -82,6 +89,7 @@ function continueStart() {
                     console.log("working")
                 }
             }
+
             
             mainmenu.pause();
             introtheme.currentTime  = 0;
@@ -806,6 +814,7 @@ function ActualGame() {
 
     introFadeIn = setInterval(FadingIn, 10);
     valueFade = false
+    eventNom = Randint(14);
     function FadingIn() {
         
 
@@ -1229,7 +1238,7 @@ function Creddits() {
 
 
 faded = false;
-
+eventNom;
 
 function ActualGame2() {
     try {
@@ -1256,7 +1265,7 @@ function ActualGame2() {
         return;
     } else {
 
-        eventNom = Randint(14);
+        
        
         EventList = ["You got robbed! Your money was halved.", "Assulted! Your safety was halved. You have a bigger target on your back.", "Disease inflicted! Your health was halved. Be careful out there.", "A man on the street looks weak and frail. Rob him?", "A knock on the door. It is a merchantman. He offers a pearl, which will give 10 happiness for only 20 sous! Purchase it?","You are offered a gun for free. It will increase safety by 10. Take it or no?", "You stole some bread from the store and got away! Your health increased by 15!","You managed to earn some extra money. You got 100 sous!","You made a new friend! You gained 10 happiness!", "Price spike! Bread price was doubled!", "Price Spike! Jewel price was doubled!", "Heavy taxes! Income was halved!","Price drop! Bread price dropped by 25%!", 'Price drop! Jewel price dropped by 25%!', "Big raise! Income was increased by 50%!"]
         badEvents = [0,1,2]
@@ -3732,6 +3741,7 @@ function NextTurn() {
     if (income <= 75) {
         income+=25
     }
+    eventNom = Randint(14);
     localsave("money", money);
     localsave("month", month);
     localsave("income",income);
@@ -3747,6 +3757,8 @@ function NextTurn() {
     localsave("dif",dif)
     localsave("difficultyNeg", difficutyNeg)
     localsave("difficultyMax", difficultyMax)
+    localsave("eventNom", eventNom)
+
     ActualGame2();
 }
 
