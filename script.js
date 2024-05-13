@@ -1255,12 +1255,17 @@ function ActualGame2() {
     randomVar = Randint(difficultyMax)
     console.log(randomVar);
     if (randomVar >= happiness && dif!=0) {
+        localsave("year", 0)
         suiDeath();
+       
         return;
     }   else     if (randomVar >= safety && dif!=0) {
+        localsave("year", 0)
         murderDeath();
+        
         return;
     }   else     if (randomVar >= health && dif!=0) {
+        localsave("year", 0)
         sickDeath();
         return;
     } else {
