@@ -41,6 +41,9 @@ function localload(saveID) {
 
 coming = false
 //reddit
+function achievements() {
+    window.open("ach.html");
+}
 
 function continueStart() {
     try {
@@ -111,13 +114,13 @@ function continueStart() {
 
 function cutChoose() {
     n = document.getElementById("scholar")
-    ba = document.getElementById("noble")
+    ba = document.getElementById("noblebutt")
     credits = document.getElementById("business")
 
     help = document.getElementById("help")
 
-
-    hard = document.getElementById("hard")
+    pain = document.getElementById("painnbutt")
+    hard = document.getElementById("hardbutt")
     try {
         diffText = document.getElementById("diffText")
     } catch {
@@ -132,7 +135,7 @@ function cutChoose() {
     try {diffText.remove()} catch {}
     
     credits.remove()
-
+    pain.remove()
     hard.remove()
     back.remove()
 
@@ -194,7 +197,7 @@ function cutNo() {
 confirmBox = true
 musicplay= true 
 fontchange = true
-
+ach = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0"]
 
 function checkSettings() {
     saved = localload("saved")
@@ -219,12 +222,242 @@ function checkSettings() {
     }
     console.log(confirmBox, musicplay, fontchange)
 
+    try {
+        ach[0] = localload("ach1");
+        ach[1] = localload("ach2");
+        ach[2] = localload("ach3");
+        ach[3] = localload("ach4");
+        ach[4] = localload("ach5");
+        ach[5] = localload("ach6");
+        ach[6] = localload("ach7");
+        ach[7] = localload("ach8");
+        ach[8] = localload("ach9");
+        ach[9] = localload("ach10");
+        ach[10] = localload("ach11");
+        ach[11] = localload("ach12");
+        ach[12] = localload("ach13");
+        ach[13] = localload("ach14");
+        ach[14] = localload("ach15");
+        ach[15] = localload("ach16");
+        ach[16] = localload("ach17");
+        ach[17] = localload("ach18");
+        ach[18] = localload("ach19");
+        ach[19] = localload("ach20");
+        ach[20] = localload("ach21");
+        if (ach[0]!="0"&&ach[0]!="1") {
+            ach = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0"]
+            localsave("ach1", "0")
+            localsave("ach2", "0")
+            localsave("ach3", "0")
+            localsave("ach4", "0")
+            localsave("ach5", "0")
+            localsave("ach6", "0")
+            localsave("ach7", "0")
+            localsave("ach8", "0")
+            localsave("ach9", "0")
+            localsave("ach10", "0")
+            localsave("ach11", "0")
+            localsave("ach12", "0")
+            localsave("ach13", "0")
+            localsave("ach14", "0")
+            localsave("ach15", "0")
+            localsave("ach16", "0")
+            localsave("ach17", "0")
+            localsave("ach18", "0")
+            localsave("ach19", "0")
+            localsave("ach20", "0")
+            localsave("ach21", "0")
+        }
+    } catch {
+        ach = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0"]
+        localsave("ach1", "0")
+        localsave("ach2", "0")
+        localsave("ach3", "0")
+        localsave("ach4", "0")
+        localsave("ach5", "0")
+        localsave("ach6", "0")
+        localsave("ach7", "0")
+        localsave("ach8", "0")
+        localsave("ach9", "0")
+        localsave("ach10", "0")
+        localsave("ach11", "0")
+        localsave("ach12", "0")
+        localsave("ach13", "0")
+        localsave("ach14", "0")
+        localsave("ach15", "0")
+        localsave("ach16", "0")
+        localsave("ach17", "0")
+        localsave("ach18", "0")
+        localsave("ach19", "0")
+        localsave("ach20", "0")
+        localsave("ach21", "0")
+    }
+    console.log(ach)
 
 }
 
+function achcheck() {
+    saved = localload("saved")
+    confirmBox = JSON.parse(localload("confirmBox"))
+    musicplay = JSON.parse(localload("musicplay"))
+    fontchange = JSON.parse(localload("fontchange"))
+    console.log("Hehe")
+    if (saved!="saved!") {
+        localsave("confirmBox", true)
+        localsave("musicplay", true)
+        localsave("fontchange", true)
+        localsave("saved", "saved!")
+        confirmBox = true
+        musicplay= true 
+        fontchange = true
+        console.log("Heh")
+    }
+    if (fontchange) {
+        documentHTML.style.fontFamily = "\"Lugrasimo\",cursive"
+    } else {
+        documentHTML.style.fontFamily = "sans-serif"
+    }
+    console.log(confirmBox, musicplay, fontchange)
 
+    try {
+        ach[0] = localload("ach1");
+        ach[1] = localload("ach2");
+        ach[2] = localload("ach3");
+        ach[3] = localload("ach4");
+        ach[4] = localload("ach5");
+        ach[5] = localload("ach6");
+        ach[6] = localload("ach7");
+        ach[7] = localload("ach8");
+        ach[8] = localload("ach9");
+        ach[9] = localload("ach10");
+        ach[10] = localload("ach11");
+        ach[11] = localload("ach12");
+        ach[12] = localload("ach13");
+        ach[13] = localload("ach14");
+        ach[14] = localload("ach15");
+        ach[15] = localload("ach16");
+        ach[16] = localload("ach17");
+        ach[17] = localload("ach18");
+        ach[18] = localload("ach19");
+        ach[19] = localload("ach20");
+        ach[20] = localload("ach21");
+        if (ach[0]!="0"&&ach[0]!="1") {
+            ach = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0"]
+            localsave("ach1", "0")
+            localsave("ach2", "0")
+            localsave("ach3", "0")
+            localsave("ach4", "0")
+            localsave("ach5", "0")
+            localsave("ach6", "0")
+            localsave("ach7", "0")
+            localsave("ach8", "0")
+            localsave("ach9", "0")
+            localsave("ach10", "0")
+            localsave("ach11", "0")
+            localsave("ach12", "0")
+            localsave("ach13", "0")
+            localsave("ach14", "0")
+            localsave("ach15", "0")
+            localsave("ach16", "0")
+            localsave("ach17", "0")
+            localsave("ach18", "0")
+            localsave("ach19", "0")
+            localsave("ach20", "0")
+            localsave("ach21", "0")
+        }
+    } catch {
+        ach = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0"]
+        localsave("ach1", "0")
+        localsave("ach2", "0")
+        localsave("ach3", "0")
+        localsave("ach4", "0")
+        localsave("ach5", "0")
+        localsave("ach6", "0")
+        localsave("ach7", "0")
+        localsave("ach8", "0")
+        localsave("ach9", "0")
+        localsave("ach10", "0")
+        localsave("ach11", "0")
+        localsave("ach12", "0")
+        localsave("ach13", "0")
+        localsave("ach14", "0")
+        localsave("ach15", "0")
+        localsave("ach16", "0")
+        localsave("ach17", "0")
+        localsave("ach18", "0")
+        localsave("ach19", "0")
+        localsave("ach20", "0")
+        localsave("ach21", "0")
+    }
+    console.log(ach)
+    if (ach[0] == "1") {
+        document.getElementById("Ach1").innerHTML = "Le Jeu... Commence! (Watch the prolougue!)";
+    }
+    if (ach[1] == "1") {
+        document.getElementById("Ach2").innerHTML = "One Down, Hundreds to Go (Survive your first month!)";
+    }
+    if (ach[2] == "1") {
+        document.getElementById("Ach3").innerHTML = "Not So Lucky (Die!)";
+    }
+    if (ach[3] == "1") {
+        document.getElementById("Ach4").innerHTML = "For the People! (Preach!)";
+    }
+    if (ach[4] == "1") {
+        document.getElementById("Ach5").innerHTML = "First Steps (Get 150 popularity!)";
+    }
+    if (ach[5] == "1") {
+        document.getElementById("Ach6").innerHTML = "Buying Happiness (Buy your first jewelery!)";
+    }
+    if (ach[6] == "1") {   
+        document.getElementById("Ach7").innerHTML = "Advertising (Buy a poster pack!)";
+    }
+    if (ach[7] == "1") {
+        document.getElementById("Ach8").innerHTML = "Storyteller (Beat the game on L'histoire! or higher!)";
+    }
+    if (ach[8] == "1") {
+        document.getElementById("Ach9").innerHTML = "My Dream in High School (Get 2000 popularity!)";
+    }
+    if (ach[9] == "1") {
+        document.getElementById("Ach10").innerHTML = "Free Spending! (Spend at least 500 sous in 1 month!)";
+    }
+    if (ach[10] == "1") {
+        document.getElementById("Ach11").innerHTML = "Why Share? (Buy at least 25 bread in one month!)";
+    }
+    if (ach[11] == "1") {
+        document.getElementById("Ach12").innerHTML = "Where Did You Find This Again? (Buy the Herb of Power!)";
+    }
+    if (ach[12] == "1") {
+        document.getElementById("Ach13").innerHTML = "From Rags to Riches (Have an income past 1000 sous!)";
+    }
+    if (ach[13] == "1") {
+        document.getElementById("Ach14").innerHTML = "From Coward to Fame! (Beat the game on I'm Too Scared! or higher!)";
+    }
+    if (ach[14] == "1") {
+        document.getElementById("Ach15").innerHTML = "Max, the Revolutionist! (Beat the game on Call me Max! or higher!)";
+    }
+    if (ach[15] == "1") {
+        document.getElementById("Ach16").innerHTML = "Just Enough Time For a Croissant (Beat the game before 1800 on I'm Too Scared! or higher!)";
+    }
+    if (ach[16] == "1") {
+        document.getElementById("Ach17").innerHTML = "Critical Condition (Have all stats drop below 25 in the same month on Call me Max! or higher!)";
+    }
+    if (ach[17] == "1") {
+        document.getElementById("Ach18").innerHTML = "Pockets Full (Have more than 2500 as your current balance!)";
+    }
+    if (ach[18] == "1") { 
+        document.getElementById("Ach19").innerHTML = "In This Economy? (Have an income past 1500!)";
+    }
+    if (ach[19] == "1") {
+        document.getElementById("Ach20").innerHTML = "The Revolution Lives on! (Beat the game on Vive la Révolution! or higher!)";
+    }
+    if (ach[20] == "1") {
+        document.getElementById("Ach21").innerHTML = "Godspeed (Beat the game before 1797 on I'm Too Scared! or higher!)";
+    }
+    if (ach[21] == "1") {  
+        document.getElementById("Ach22").innerHTML = "The New King of France! (Beat the game on L'État, c'est moi!)";
+    }
 
-
+}
 function changeSound(x) {
         mainmenu.volume = x
         newdaytheme.volume = x
@@ -407,17 +640,17 @@ function start() {
     n.setAttribute("onclick", "scholar()");
     n.setAttribute("onmouseover","scholarHover()")
     n.setAttribute("onmouseout","resetDifText()")
-    node = document.createTextNode("Scholar mode");
+    node = document.createTextNode("L'histoire!");
     n.appendChild(node);
 
     ba = document.createElement('button');
     ba.className = "fadeIn newgamebutton"
     
-    ba.setAttribute("id", "noble");
+    ba.setAttribute("id", "noblebutt");
     ba.setAttribute("onclick", "noble()");
     ba.setAttribute("onmouseover","nobleHover()")
     ba.setAttribute("onmouseout","resetDifText()")
-    node = document.createTextNode("Noble mode");
+    node = document.createTextNode("I'm Too Scared!");
     ba.appendChild(node);
 
     creditss = document.createElement('button');
@@ -427,19 +660,31 @@ function start() {
     creditss.setAttribute("onclick", "business()");
     creditss.setAttribute("onmouseover","bgsHover()")
     creditss.setAttribute("onmouseout","resetDifText()")
-    node = document.createTextNode("BGS mode");
+    node = document.createTextNode("Call me Max!");
     creditss.appendChild(node);
 
     hard = document.createElement('button');
     
 
 
-    hard.setAttribute("id", "hard");
+    hard.setAttribute("id", "hardbutt");
     hard.setAttribute("onclick", "peasant()");
     hard.setAttribute("onmouseover","peasantHover()")
     hard.setAttribute("onmouseout","resetDifText()")
-    node = document.createTextNode("Peasant Mode");
+    node = document.createTextNode("Vive la Révolution!");
     hard.appendChild(node);
+
+
+    painn = document.createElement('button');
+    
+
+
+    painn.setAttribute("id", "painnbutt");
+    painn.setAttribute("onclick", "painful()");
+    painn.setAttribute("onmouseover","painHover()")
+    painn.setAttribute("onmouseout","resetDifText()")
+    node = document.createTextNode("L'État, c'est moi!");
+    painn.appendChild(node);
 
     back = document.createElement('button');
     
@@ -465,6 +710,7 @@ function start() {
     titleScreen.appendChild(ba);
     titleScreen.appendChild(creditss);
     titleScreen.appendChild(hard);
+    titleScreen.appendChild(painn);
     titleScreen.appendChild(back);
     
 
@@ -559,6 +805,18 @@ function options() {
     }
     creditss.appendChild(node);
 
+    ach = document.createElement('button');
+    ach.className = "fadeIn helpebutton"
+    
+    ach.setAttribute("id", "achievements");
+    ach.setAttribute("onclick", "achievements()");
+    ach.setAttribute("onmouseover","achHover()")
+    ach.setAttribute("onmouseout","resetDifText2()")
+    node = document.createTextNode("Achievements");
+
+    
+    ach.appendChild(node);
+
 
 
     back = document.createElement('button');
@@ -568,6 +826,7 @@ function options() {
     back.setAttribute("onclick", "EnterGame()");
     node = document.createTextNode("Back");
     back.appendChild(node);
+
 
     help = document.createElement('button');
     
@@ -584,7 +843,7 @@ function options() {
     titleScreen.appendChild(n);
     titleScreen.appendChild(ba);
     titleScreen.appendChild(creditss);
-
+    titleScreen.appendChild(ach);
     titleScreen.appendChild(back);
 }
 
@@ -636,6 +895,14 @@ function fonttoggle() {
 function confirmboxHover() {
     try {
         document.getElementById("diffText").innerHTML = "Toggle the confirmation box. The confirmation box appears before you end each turn to show you your monthly expenses."
+    } catch {
+
+    }
+}
+
+function achHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "View your achievements! Achievements are earned by completing certain tasks in the game."
     } catch {
 
     }
@@ -718,6 +985,14 @@ function peasantHover() {
     }
 }
 
+function painHover() {
+    try {
+        document.getElementById("diffText").innerHTML = "The biggest challenge in all of France, only masochists and extremely skilled are welcome! Everything else is the same as VLR, but you must complete the game before 1800, as the mob will get impatient and seek your head!"
+    } catch {
+
+    }
+}
+
 //credits
 function scholar() {
     if (running == false) {
@@ -764,6 +1039,18 @@ function peasant() {
         difficultyMax = 25
         income = 200
         dif = 3
+        cutChoose();
+        
+    }
+}
+
+function painful() {
+    if (running == false) {
+        running = true
+        difficutyNeg = 8
+        difficultyMax = 25
+        income = 200
+        dif = 4
         cutChoose();
         
     }
@@ -822,7 +1109,12 @@ function ActualGame() {
             alertDiv = document.createElement("div")
             alertDiv.setAttribute("class", "alertdiv" )
             alertDiv.setAttribute("id", "alertdiv")
-            node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. All bread gets consumed every month You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.The goal of the game is to collect popularity! Once you reach certain points, certain events will occur.")
+            if (dif < 4) {
+
+                node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. All bread gets consumed every month You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.The goal of the game is to collect popularity! Once you reach certain points, certain events will occur.")
+            } else {
+                node = document.createTextNode("Dear player,\nWelcome to the French revolution game! We are delighted to have you here. This is a quick game help to help you play. At this time, You wil gain "+income+" sous every month. A loaf of bread costs 13 sous. Your income and bread price will fluctuate based on certain events. You need at least 15 bread in a month, or you will lose "+difficutyNeg+" health per bread missing. If your health drops below 0, you die in the next month. All bread gets consumed every month You can keep yourself happy by spending money on yourself, such as purchasing jewelery. You lose "+difficutyNeg+" happiness a month. If happiness drops to 0, you will kill yoursef in the next month. Safety will go down or up by choices made in monthly events. Dropping below 0 will result in being executed or murdered. If any of your stats drop below "+difficultyMax+", you have a chance to die. The lower it is, the higher the chance.The goal of the game is to collect popularity! Once you reach certain points, certain events will occur. Remember, you have until year 1800 to complete the revolution before the people seek your head. Good luck.")
+            }
 
             alertDiv.appendChild(node);
             document.body.style.textAlign = "center";
@@ -866,12 +1158,17 @@ function ActualGame() {
 
 
 function suiDeath() {
+    
     sadtheme.play()
     sadtheme.loop = "true";
     documentHTML.style.backgroundImage = "url(\"Images/Grave.jpg\")"
     introTextDiv = document.createElement("div");
     introTextDiv.setAttribute("id","introDiv")
-    
+    if (ach[2] == "0") {
+        ach[2] = "1"
+        localsave("ach3", "1")
+        alert("Achievement Unlocked: Not So Lucky (Die!)")
+    }
     
 
     body.appendChild(introTextDiv)
@@ -960,7 +1257,11 @@ function sickDeath() {
     documentHTML.style.backgroundImage = "url(\"Images/Grave.jpg\")"
     introTextDiv = document.createElement("div");
     introTextDiv.setAttribute("id","introDiv")
-    
+    if (ach[2] == "0") {
+        ach[2] = "1"
+        localsave("ach3", "1")
+        alert("Achievement Unlocked: Not So Lucky (Die!)")
+    }
     
 
     body.appendChild(introTextDiv)
@@ -1049,7 +1350,11 @@ function murderDeath() {
     documentHTML.style.backgroundImage = "url(\"Images/Grave.jpg\")"
     introTextDiv = document.createElement("div");
     introTextDiv.setAttribute("id","introDiv")
-    
+    if (ach[2] == "0") {
+        ach[2] = "1"
+        localsave("ach3", "1")
+        alert("Achievement Unlocked: Not So Lucky (Die!)")
+    }
     
 
     body.appendChild(introTextDiv)
@@ -1232,7 +1537,7 @@ function no() {
 
 
 function Creddits() {
-    alert("Made by Dominic Koh.\nMusic from Super Metroid\nImages from Google\nCurrent Version: Options v1.1.0\nThanks for playing!")
+    alert("Made by Dominic Koh.\nMusic from Super Metroid\nImages from Google\nCurrent Version: Options v1.1.3\nThanks for playing!")
 }
 
 
@@ -1249,7 +1554,9 @@ function ActualGame2() {
     }
     
     introtheme.pause();
-
+    if (dif == 4 && year >= 1800) {
+        safety = 0;
+    }
     valueFade = false
     dead = false
     randomVar = Randint(difficultyMax)
@@ -1258,6 +1565,7 @@ function ActualGame2() {
         localsave("year", 0)
         suiDeath();
        
+        
         return;
     }   else     if (randomVar >= safety && dif!=0) {
         localsave("year", 0)
@@ -1271,7 +1579,21 @@ function ActualGame2() {
     } else {
 
         
-       
+        if (trueMonth==1 && ach[1]=="0") {
+            ach[1] = "1"  
+            localsave("ach2", ach[1])
+            alert("Achievement Unlocked: One Down, Hundreds to Go (Survive your first month!)")
+        }
+        if (popul >= 150 && ach[4]=="0") {
+            ach[4] = "1"  
+            localsave("ach5", ach[4])
+            alert("Achievement Unlocked: First Steps (Get 150 popularity!)")
+        }
+        if (popul >= 2000 && ach[8]=="0") {
+            ach[8] = "1"  
+            localsave("ach9", ach[8])
+            alert("Achievement Unlocked: My Dream in High School (Get 2000 popularity!)")
+        }
         EventList = ["You got robbed! Your money was halved.", "Assulted! Your safety was halved. You have a bigger target on your back.", "Disease inflicted! Your health was halved. Be careful out there.", "A man on the street looks weak and frail. Rob him?", "A knock on the door. It is a merchantman. He offers a pearl, which will give 10 happiness for only 20 sous! Purchase it?","You are offered a gun for free. It will increase safety by 10. Take it or no?", "You stole some bread from the store and got away! Your health increased by 15!","You managed to earn some extra money. You got 100 sous!","You made a new friend! You gained 10 happiness!", "Price spike! Bread price was doubled!", "Price Spike! Jewel price was doubled!", "Heavy taxes! Income was halved!","Price drop! Bread price dropped by 25%!", 'Price drop! Jewel price dropped by 25%!', "Big raise! Income was increased by 50%!"]
         badEvents = [0,1,2]
         curiEvents = [3,4,5]
@@ -1582,7 +1904,7 @@ function cutscene() {
                 if (faded == true && valueFade == false) {
                     valueFade = true
                     opac = 0
-                    node = document.createTextNode(month+" "+year+": After a bloody battle, the Bastille falls, a torture prison. The guards are beheaded and their heads are paraded through the city. LEt's make that the king's head.");
+                    node = document.createTextNode(month+" "+year+": After a bloody battle, the Bastille falls, a torture prison. The guards are beheaded and their heads are paraded through the city. Let's make that the king's head.");
                     introText.appendChild(node);
                     introTextDiv = document.getElementById("CutDiv");
                     introTextDiv.appendChild(introText);
@@ -1741,7 +2063,7 @@ function cutscene() {
                 if (faded == true && valueFade == false) {
                     valueFade = true
                     opac = 0
-                    node = document.createTextNode(month+" "+year+": In a fit of rage, the women of Paris start an uprisign! Angrily, they march to Versailles, hungry and wanting change. They decimated and killed everything in their way. The king was forced to relocate in Paris");
+                    node = document.createTextNode(month+" "+year+": In a fit of rage, the women of Paris start an uprising! Angrily, they march to Versailles, hungry and wanting change. They decimated and killed everything in their way. The king was forced to relocate in Paris");
                     introText.appendChild(node);
                     introTextDiv = document.getElementById("CutDiv");
                     introTextDiv.appendChild(introText);
@@ -2101,7 +2423,11 @@ function cutscene() {
                 }
                  
                 coming = true
-
+                if (ach[7]=="0") {
+                    ach[7] = "1"  
+                    localsave("ach8", ach[7])
+                    alert("Achievement Unlocked: Storyteller (Beat the game on L'histoire! or higher!)")
+                }
                 EnterGame()    
             }, 25000);
         } else {
@@ -2760,7 +3086,41 @@ function cutscene() {
                 }
                  
                 coming = true
-
+                if (ach[7]=="0") {
+                    ach[7] = "1"  
+                    localsave("ach8", ach[7])
+                    alert("Achievement Unlocked: Storyteller (Beat the game on L'histoire! or higher!)")
+                }
+                if (dif>=1 && ach[13]=="0") {
+                    ach[13] = "1"  
+                    localsave("ach14", ach[13])
+                    alert("Achievement Unlocked: From Coward to Fame! (Beat the game on I'm Too Scared! or higher!)")
+                }
+                if (dif>=2 && ach[14]=="0") {
+                    ach[14] = "1"  
+                    localsave("ach15", ach[14])
+                    alert("Achievement Unlocked: Max, the Revolutionist! (Beat the game on Call me Max! or higher!)")
+                }
+                if (dif>=3 && ach[19]=="0") {
+                    ach[19] = "1"  
+                    localsave("ach20", ach[19])
+                    alert("Achievement Unlocked: The Revolution Lives on! (Beat the game on Vive la Révolution! or higher!)")
+                }
+                if (dif>=1 && year < 1800 && ach[15]=="0") {
+                    ach[15] = "1"  
+                    localsave("ach16", ach[15])
+                    alert("Achievement Unlocked: Just Enough Time For a Croissant (Beat the game before 1800 on I'm Too Scared! or higher!)")
+                }
+                if (dif>=1 && year < 1797 && ach[20]=="0") {
+                    ach[20] = "1"  
+                    localsave("ach21", ach[20])
+                    alert("LEGENDARY Achievement Unlocked: Godspeed (Beat the game before 1797 on I'm Too Scared! or higher!)")
+                }
+                if (dif>=4 && ach[21]=="0") {
+                    ach[21] = "1"  
+                    localsave("ach22", ach[21])
+                    alert("LEGENDARY Achievement Unlocked: The New King of France! (Beat the game on L'État, c'est moi!)")
+                }
                 EnterGame()    
             }, 25000);
 
@@ -2779,7 +3139,7 @@ function cutscene() {
         }
     }
 }
-
+//ach[1]
 difficultyNegMax = 0
 
 function GameGame() {
@@ -2791,7 +3151,10 @@ function GameGame() {
         difficultyNegMax = 5
     }  else if (dif==3) {
         difficultyNegMax = 7
+    }  else if (dif==4) {
+        difficultyNegMax = 8
     } 
+    
     try {
         mainmenu.pause()
     } catch {
@@ -2855,7 +3218,26 @@ function GameGame() {
     }
 
 
-
+    if (income>=1000 && ach[12]=="0") {
+        ach[12] = "1"  
+        localsave("ach13", ach[12])
+        alert("Achievement Unlocked: From Rags to Riches (Have an income past 1000 sous!)")
+    }
+    if (dif>=2 && safety < 25 && health < 25 && happiness < 25 && ach[16]=="0") {
+        ach[16] = "1"  
+        localsave("ach17", ach[16])
+        alert("Achievement Unlocked: Critical Condition (Have all stats drop below 25 in the same month on Call me Max! or higher!)")
+    }
+    if (money>=2500 && ach[17]=="0") {
+        ach[17] = "1"  
+        localsave("ach18", ach[17])
+        alert("Achievement Unlocked: Pockets Full (Have more than 2500 as your current balance!)")
+    }
+    if (income>=1500 && ach[18]=="0") {
+        ach[18] = "1"  
+        localsave("ach19", ach[18])
+        alert("Achievement Unlocked: In This Economy? (Have an income past 1500!)")
+    }
     populpack = false
     dateHead = document.createElement("h1");
     dateHead.setAttribute("id", "dateHead")
@@ -3268,6 +3650,11 @@ populpack = false
 preaching = false;
 function Preach() {
     if (preaching == false) {
+        if (ach[3]=="0") {
+            ach[3] = "1"  
+            localsave("ach4", ach[3])
+            alert("Achievement Unlocked: For the People! (Preach!)")
+        }
         preaching = true;
         chance = Randint(20) 
         if (chance == 0) {
@@ -3343,6 +3730,11 @@ function Riot() {
 
 
 function shop1() {
+    if (ach[11]=="0") {
+        ach[11] = "1"  
+        localsave("ach12", ach[11])
+        alert("Achievement Unlocked: Where Did You Find This Again? (Buy the Herb of Power!)")
+    }
     if (money>=1000) {
         difficutyNeg-=1
         money-=1000
@@ -3370,7 +3762,11 @@ function shop2() {
 }
 
 function shop3() {
-    
+    if (ach[6]=="0") {
+        ach[6] = "1"  
+        localsave("ach7", ach[6])
+        alert("Achievement Unlocked: Advertising (Buy a poster pack!)")
+    }
     if (money>=50) {
         populpack = true
         popul+=25
@@ -3704,8 +4100,21 @@ function NextTurn() {
     console.log(health)
     money+=enforcement*2;
     popul-=enforcement;
-
-
+    if (jewelStock > 0 && ach[5]=="0") {
+        ach[5] = "1"  
+        localsave("ach6", ach[5])
+        alert("Achievement Unlocked: Buying Happiness (Buy your first jewelery!)")
+    }
+    if (breadStock > 24 && ach[10]=="0") {
+        ach[10] = "1"  
+        localsave("ach11", ach[10])
+        alert("Achievement Unlocked: Why Share? (Buy at least 25 bread in one month!)")
+    }
+    if (jewelStock*jewel+breadStock*bread > 500 && ach[9]=="0") {
+        ach[9] = "1"  
+        localsave("ach10", ach[9])
+        alert("Achievement Unlocked: Free Spending! (Spend at least 500 sous in 1 month!)")
+    }
     inflationOp = Randint(1);
     inflation1 = Randint(10)+5;
     inflation2 = Randint(10)+5;
@@ -3996,6 +4405,11 @@ function Game() {
             }
         }
       }, 50000);
+      if (ach[0]=="0") {
+        ach[0] = "1"  
+        localsave("ach1", ach[0])
+        alert("Achievement Unlocked: Le Jeu... Commence! (Watch the prolougue!)")
+    }
       setTimeout(() => {
         alert("Before you start:\nRation your food intake well. You never know when it could be stolen.\nKeep your happiness up or you willl commit suicide\nKeep safety up or you wil be murdered\nKeep health up or you will fall ill and die.\nRandom events can happen every month.")
         ActualGame();

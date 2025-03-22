@@ -217,7 +217,16 @@ button:active {
 
 }
 
+#noblebutt {
+    width: 500px;
+}
 
+#hardbutt {
+    width: 600px;
+}
+#painnbutt {
+    width: 600px;
+}
 
 
 

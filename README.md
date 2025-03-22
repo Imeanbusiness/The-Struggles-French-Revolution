@@ -8,8 +8,8 @@ Thank you for choosing to play The Struggles: The French Revolution! This game c
 
 ### Info
 
-- Version: Options v1.1.1 (fixed)
-- Size: 27MB
+- Version: Options v1.1.3 (Achievements!)
+- Size: 55MB
 
 ### Contents
 
@@ -17,7 +17,7 @@ Thank you for choosing to play The Struggles: The French Revolution! This game c
 - Assets folder
 - JS file
 - CSS file
-- 2 HTML files
+- 3 HTML files
 
 ### Download to play offline
 
@@ -34,14 +34,15 @@ Thank you for choosing to play The Struggles: The French Revolution! This game c
 
 ### Difficulties
 
-- For students and learners, **Scholar mode** is the best mode to pick, as it makes the game more historically accurate. All events happen on their real life date and death cannot happen. The stat gains are very similar to BGS mode
-- For first time plays, **Noble mode** is the mode for you. only having a 3 stat loss and 300 income, it will make for a very good first time experience. You only die when a stat hits 0.
-- For those who want the true experience, **BGS (Bourgeoisie) mode** is the best way to go. You have a stat loss of 5 and income of 250 in this one, as well as having a chance to die when your stats drop below 10. This can be somewhat challenging.
-- And if you would like a massive challenge, **Peasant mode** will likely topple your ego. Woth a stat loss of 7 and a starting income of 200, you will have a tough time surviving and will likely succumb to the life of the 18th century France. On top of that, you have a chance to die when your stats drop below 25. Good luck!
+- For students and learners, **L'histoire!** is the best mode to pick, as it makes the game more historically accurate. All events happen on their real life date and death cannot happen. The stat gains are very similar to BGS mode
+- For first time plays, **I'm Too Scared!** is the mode for you. only having a 3 stat loss and 300 income, it will make for a very good first time experience. You only die when a stat hits 0.
+- For those who want the true experience, **Call me Max!** is the best way to go. You have a stat loss of 5 and income of 250 in this one, as well as having a chance to die when your stats drop below 10. This can be somewhat challenging.
+- If you would like a massive challenge, **Vive la révolution!** will likely topple your ego. With a stat loss of 7 and a starting income of 200, you will have a tough time surviving and will likely succumb to the life of the 18th century France. On top of that, you have a chance to die when your stats drop below 25. Good luck!
+- But the biggest challenge in the whole game is **L'État, c'est moi!** It is nearly the same as VLR, with a stat loss of 8, a starting income of 200, and a chance to die when your stats drop below 25, but you must also complete the revolution before year 1800! If not, the impatient mob of the riots will seek new leadership; after they seek your head.
 
 ## Survival
 
-- If you aren't playing on scholar mode, your job is to gain popularity and keep your stat high. Your stats include safety, health, and happiness. All 4 stats can be managed throughout the game through purchases and choices
+- If you aren't playing on L'histoire!, your job is to gain popularity and keep your stat high. Your stats include safety, health, and happiness. All 4 stats can be managed throughout the game through purchases and choices
 - Events happen every month that can affect each stat and alter the market and your income. Stay on your toes.
 
 ## Seems simple. What's the challenge?
