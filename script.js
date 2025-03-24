@@ -1091,7 +1091,7 @@ function ActualGame() {
     health = 75;
     safety = 75;
     year = 1789;
-    popul = 0;
+    popul = 1950;
     jewel = 20;
     bread = 13;
     eventHap = 0;
@@ -1342,7 +1342,7 @@ function sickDeath() {
 
 
 }
-
+//>= 2000
 function murderDeath() {
     sadtheme.currentTime = 0
     sadtheme.play()
@@ -3797,7 +3797,7 @@ function shop4() {
 
 
 function updateStats() {
-    
+    console.log(popul)
     if (health < 0) {
         health = 0
     }
@@ -4028,10 +4028,11 @@ function updateStats() {
     shop4Input.setAttribute("onclick", "shop4()")
     shop4Div.appendChild(shop4Input);
     document.getElementById("shop4input").innerHTML = "Buy";    
+    console.log(popul)
 }
 
 
-
+//popul =
 
 
 
@@ -4039,7 +4040,7 @@ function updateStats() {
 
 
 function NextTurn() {
-    
+    console.log(popul)
     breadStock = 0;
     jewelStock = 0;
     enforcement = 0;
@@ -4062,6 +4063,9 @@ function NextTurn() {
     try {
         if (popul > 1999) {
             enforcement = document.getElementById("enfinput").value;
+            if (isNaN(enforcement)) {
+                enforcement = 0;
+            }
             if (popul < enforcement ) {
                 alert("Error: You don't have enough popularity to enforce that!")
                 return;
@@ -4075,6 +4079,7 @@ function NextTurn() {
     } catch {
         enforcement = 0;
     }
+
     var textConf = "Are you sure you wish to proceed? Your bread total is "+(breadStock*bread)+" sous\nYour Jewelery total is "+jewelStock*jewel+" sous\nYour popularity will decrease by "+enforcement+"\nYou will be left with "+(money-(breadStock*bread)-(jewelStock*jewel))+" sous and "+(popul-enforcement)+" popularity."
     
     if (confirmBox) {
