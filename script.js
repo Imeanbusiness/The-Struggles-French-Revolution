@@ -1091,7 +1091,7 @@ function ActualGame() {
     health = 75;
     safety = 75;
     year = 1789;
-    popul = 1950;
+    popul = 0;
     jewel = 20;
     bread = 13;
     eventHap = 0;
